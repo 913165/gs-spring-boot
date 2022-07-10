@@ -30,8 +30,7 @@ public class UtilController {
 			String line;
 			while ((line = reader.readLine()) != null) {
 				System.out.println(line);
-				resultBuffer.append(line);
-				resultBuffer.append(System.getProperty("line.separator"));
+				resultBuffer.append(line+"<br>");
 			}
 		}
 		return resultBuffer.toString();
