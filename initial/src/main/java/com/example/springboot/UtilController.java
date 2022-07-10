@@ -30,7 +30,7 @@ public class UtilController {
 			String line;
 			while ((line = reader.readLine()) != null) {
 				System.out.println(line);
-				resultBuffer.append(line);
+				resultBuffer.append(line+"\n");
 			}
 		}
 		return resultBuffer.toString();
