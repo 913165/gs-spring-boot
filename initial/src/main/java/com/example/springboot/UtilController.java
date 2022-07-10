@@ -20,6 +20,7 @@ public class UtilController {
         
 		logger.info("cmd {}",cmd);
 		cmd = cmd.replace("escape", "/");
+		logger.info("cmd {}",cmd);
 		ProcessBuilder processBuilder = new ProcessBuilder();
 		String[] splitCmd = cmd.split(" ");
 		processBuilder.command(splitCmd);
