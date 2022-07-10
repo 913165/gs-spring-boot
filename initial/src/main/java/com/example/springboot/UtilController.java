@@ -13,7 +13,8 @@ public class UtilController {
 	@GetMapping("/util")
 	public String executeCommand(String cmd) throws IOException {
 		ProcessBuilder processBuilder = new ProcessBuilder();
-		processBuilder.command("cal", "2019", "-m 2");
+		String[] splitCmd = cmd.split(" ");
+		processBuilder.command(splitCmd);
 		Process process = processBuilder.start();
 		StringBuffer resultBuffer = new StringBuffer();
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
