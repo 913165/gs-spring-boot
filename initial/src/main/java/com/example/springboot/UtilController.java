@@ -19,7 +19,7 @@ public class UtilController {
 	public String executeCommand(@PathVariable("cmd") String cmd) throws IOException {
         
 		logger.info("cmd {}",cmd);
-		cmd = cmd.replace("escape", "/");
+		cmd = cmd.replaceAll("escape", "/");
 		logger.info("cmd {}",cmd);
 		ProcessBuilder processBuilder = new ProcessBuilder();
 		String[] splitCmd = cmd.split(" ");
