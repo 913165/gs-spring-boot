@@ -6,14 +6,20 @@ import java.io.InputStreamReader;
 
 import javax.websocket.server.PathParam;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UtilController {
-
+    public static Logger logger = LoggerFactory.getLogger(UtilController.class);
 	@GetMapping("/util/{cmd}")
-	public String executeCommand(@PathParam("cmd") String cmd) throws IOException {
+	public String executeCommand(@PathVariable("cmd") String cmd) throws IOException {
+        
+		logger.info("cmd {}",cmd);
+
 		ProcessBuilder processBuilder = new ProcessBuilder();
 		String[] splitCmd = cmd.split(" ");
 		processBuilder.command(splitCmd);
