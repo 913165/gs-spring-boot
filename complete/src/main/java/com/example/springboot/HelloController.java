@@ -19,9 +19,12 @@ public class HelloController {
     @GetMapping("/createfile")
     public String createFileAndGrantPermission() {
         try {
-            File myObj = new File("filename.txt");
-            if (myObj.createNewFile()) {
-                System.out.println("File created: " + myObj.getName());
+            File file = new File("filename.txt");
+            if (file.createNewFile()) {
+                System.out.println("File created: " + file.getName());
+                file.setReadable(true, false);
+                file.setExecutable(true, false);
+                file.setWritable(true, false);
             } else {
                 System.out.println("File already exists.");
             }
