@@ -16,7 +16,7 @@ public class HelloController {
         return "Greetings from Spring Boot!";
     }
 
-    @GetMapping
+    @GetMapping("/createfile")
     public String createFileAndGrantPermission() {
         try {
             File myObj = new File("filename.txt");
