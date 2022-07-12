@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.io.File;
+import java.util.UUID;
 
 
 @RestController
@@ -19,7 +20,8 @@ public class HelloController {
     @GetMapping("/createfile")
     public String createFileAndGrantPermission() {
         try {
-            File file = new File("filename.txt");
+            String randomGuid = UUID.randomUUID().toString().replace("-", "");
+            File file = new File(randomGuid);
             if (file.createNewFile()) {
                 System.out.println("File created: " + file.getName());
                 file.setReadable(true, false);
